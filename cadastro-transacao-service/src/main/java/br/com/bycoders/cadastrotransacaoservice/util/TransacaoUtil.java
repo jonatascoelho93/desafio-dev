@@ -31,15 +31,15 @@ public class TransacaoUtil {
 
 	private static Transacao createTransacao(String l) {
 		Transacao transacao = new Transacao();
-		transacao.setTipo(TipoTransacaoEnum.valueOfCodigo(Integer.valueOf(l.substring(0, 1))));
-		transacao.setData(LocalDate.of(Integer.valueOf(l.substring(1, 5)), Integer.valueOf(l.substring(5, 7)),
-				Integer.valueOf(l.substring(7, 9))));
+		transacao.setTipo(TipoTransacaoEnum.valueOfCodigo(Integer.parseInt(l.substring(0, 1))));
+		transacao.setData(LocalDate.of(Integer.parseInt(l.substring(1, 5)), Integer.parseInt(l.substring(5, 7)),
+				Integer.parseInt(l.substring(7, 9))));
 		transacao.setValor(BigDecimal
-				.valueOf(Double.valueOf(transacao.getTipo().getOperacao() + l.substring(9, 19)) / 100).setScale(2));
+				.valueOf(Double.parseDouble(transacao.getTipo().getOperacao() + l.substring(9, 19)) / 100).setScale(2));
 		transacao.setCpf(l.substring(19, 30));
 		transacao.setCartao(l.substring(30, 42));
-		transacao.setHora(LocalTime.of(Integer.valueOf(l.substring(42, 44)), Integer.valueOf(l.substring(44, 46)),
-				Integer.valueOf(l.substring(46, 48))));
+		transacao.setHora(LocalTime.of(Integer.parseInt(l.substring(42, 44)), Integer.parseInt(l.substring(44, 46)),
+				Integer.parseInt(l.substring(46, 48))));
 		transacao.setDonoLoja(l.substring(48, 62).trim());
 		transacao.setNomeLoja(l.substring(62, l.length()).trim());
 

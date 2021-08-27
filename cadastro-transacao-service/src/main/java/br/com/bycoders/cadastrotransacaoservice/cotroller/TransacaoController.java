@@ -29,7 +29,7 @@ public class TransacaoController {
 	@Autowired
 	TransacaoRepository transacaoRepository;
 
-	@PostMapping(path = "/all")
+	@PostMapping(path = "/addAll")
 	public ResponseEntity<?> upload(@RequestParam MultipartFile arquivo) {
 		try {
 			logger.info("Acessando endpoint post /trasacao/all");
