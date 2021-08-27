@@ -7,14 +7,20 @@ import java.time.LocalTime;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Table;
 
 import br.com.bycoders.cadastrotransacaoservice.enumeration.TipoTransacaoEnum;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Entity(name = "transacoes")
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "transacoes")
 public class Transacao extends AbstractEntity<Long> {
 
 	private static final long serialVersionUID = 1L;
