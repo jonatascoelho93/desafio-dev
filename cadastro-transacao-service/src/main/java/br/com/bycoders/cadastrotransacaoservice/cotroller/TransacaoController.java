@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import br.com.bycoders.cadastrotransacaoservice.entity.Transacao;
 import br.com.bycoders.cadastrotransacaoservice.repository.TransacaoRepository;
 import br.com.bycoders.cadastrotransacaoservice.util.TransacaoUtil;
 
+@CrossOrigin
 @RestController
 @RequestMapping(path = "/transacao", produces = { MediaType.APPLICATION_JSON_VALUE })
 public class TransacaoController {
@@ -28,7 +30,8 @@ public class TransacaoController {
 
 	@Autowired
 	TransacaoRepository transacaoRepository;
-
+	
+	
 	@PostMapping(path = "/addAll")
 	public ResponseEntity<?> upload(@RequestParam MultipartFile arquivo) {
 		try {
@@ -46,6 +49,7 @@ public class TransacaoController {
 
 	}
 	
+	@CrossOrigin
 	@GetMapping
 	public ResponseEntity<?> getAll(){
 		try {

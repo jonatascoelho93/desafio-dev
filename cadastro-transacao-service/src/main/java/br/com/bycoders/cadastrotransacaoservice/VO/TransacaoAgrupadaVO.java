@@ -13,11 +13,13 @@ import lombok.Setter;
 public class TransacaoAgrupadaVO {
 
 	private String nomeLoja;
+	private String donoLoja;
 	private BigDecimal saldo;
 	private List<TransacaoVO> transacoes;
 
 	public TransacaoAgrupadaVO(List<TransacaoVO> trasacoes) {
 		this.nomeLoja = trasacoes.get(0).getNomeLoja();
+		this.donoLoja = trasacoes.get(0).getDonoLoja();
 		this.transacoes = trasacoes;
 		this.saldo = trasacoes.stream().map(t -> t.getValor()).reduce(BigDecimal.ZERO, BigDecimal::add);
 
