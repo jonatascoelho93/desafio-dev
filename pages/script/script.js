@@ -51,13 +51,7 @@ function totalPriceFormatter(data) {
   return total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
-
-$(document).keyup(function () {
-  if ($("#input").value != null) {
-    $("#uploadSubmit").removeAttr("disabled");
-  }
-});
-
+//validar a extesão do arquivo selecionado
 $("#input").change(function () {
   var nomeArquivo = this.files[0].name;
   var tamanhoNome = nomeArquivo.length;
@@ -71,6 +65,7 @@ $("#input").change(function () {
 })
 
 
+//requisição Ajax
 $("#formulario").submit(function () {
 
   var formData = new FormData(this);
