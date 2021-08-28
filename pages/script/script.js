@@ -62,7 +62,7 @@ $("#input").change(function () {
   var nomeArquivo = this.files[0].name;
   var tamanhoNome = nomeArquivo.length;
 
-  if (nomeArquivo.substr(tamanhoNome - 3, tamanhoNome) == "txt") {
+  if (nomeArquivo.substr(tamanhoNome - 4, tamanhoNome) == ".txt") {
     $("#btnEnviar").removeAttr("disabled");
   } else {
     alert("Extensão do arquivo invalida!")
