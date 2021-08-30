@@ -1,4 +1,4 @@
-var API_URL = 'http://localhost:8080/transacao/'
+var API_URL = 'http://localhost:9091/transacao/'
 
 // Cria a tabela de trasações por loja detalhada
 function detailFormatter(index, row) {
@@ -77,9 +77,14 @@ $("#formulario").submit(function () {
     async: false,
     success: function () {
       alert("Dados atualizado com sucesso!");
+      location.replace('http://localhost:9090');
+      alert("");
     }, error: function () {
       alert("Erro em atualizar dados!");
+      location.replace('http://localhost:9090');
+      alert("");
     },
+
     cache: false,
     contentType: false,
     processData: false,
@@ -87,7 +92,6 @@ $("#formulario").submit(function () {
       var myXhr = $.ajaxSettings.xhr();
       if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
         myXhr.upload.addEventListener('progress', function () {
-          console.log("Teste")/* faz alguma coisa durante o progresso do upload */
         }, false);
       }
       return myXhr;
